@@ -200,7 +200,7 @@ article {
   border-radius: inherit;
   z-index: -1;
 }
-.icon-box img{
+.icon-box img {
   width: 30px;
   height: 30px;
   object-fit: cover;
@@ -850,13 +850,12 @@ main {
   margin-bottom: 7px;
 }
 
-
 .timeline-list span {
   color: var(--vegas-gold);
   font-weight: var(--fw-400);
   line-height: 1.6;
 }
-.timeline-item-location{
+.timeline-item-location {
   color: var(--light-gray) !important;
 }
 
@@ -2029,7 +2028,6 @@ textarea.form-input::-webkit-resizer {
     max-width: 700px;
   }
 }
-
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -2043,19 +2041,77 @@ textarea.form-input::-webkit-resizer {
   background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
 }
 
-.modal-content {
+.imageModalContainer {
+  position: relative;
+  top: 50%;
+  background-color: #fff;
   margin: auto;
-  display: block;
-  width: 80%;
-  max-width: 700px;
+  width: 70%;
+  height: fit-content;
+  max-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid white;
+  border-radius: 6px;
+  transform: translateY(-50%);
+  overflow-y: auto;
 }
-
 .close {
   position: absolute;
-  top: 15px;
-  right: 35px;
-  color: #fff;
-  font-size: 40px;
-  font-weight: bold;
+  top: 10px ;
+  right: 5px;
+  background: #a8a8a8;
+  font-size: 24px;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-end;
+  z-index: 1000;
   cursor: pointer;
+}
+
+.modal-image {
+  display: block;
+  width: 100%;
+  height: 300px;
+  border-radius: 6px; /* Add border radius */
+  object-fit: cover;
+  object-position: top;
+  z-index: 1;
+}
+#caption {
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+
+.modal-body{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 10px 50px;
+  width: 100%;
+}
+
+#modalTitle {
+  color: #000;
+  margin-top: 10px;
+}
+
+#modalDescription {
+  color: #000;
+  margin-top: 10px;
+}
+
+.download-btn {
+  display: block;
+  margin: 20px 0px;
+  padding: 10px 20px;
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
 }

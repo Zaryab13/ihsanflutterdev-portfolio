@@ -117,6 +117,7 @@ for (let i = 0; i < formInputs.length; i++) {
     }
   });
 }
+
 // page navigation variables
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
 const pages = document.querySelectorAll("[data-page]");
@@ -124,7 +125,6 @@ const pages = document.querySelectorAll("[data-page]");
 // add event to all nav link
 for (let i = 0; i < navigationLinks.length; i++) {
   navigationLinks[i].addEventListener("click", function () {
-
     for (let i = 0; i < pages.length; i++) {
       if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
         pages[i].classList.add("active");
@@ -135,15 +135,16 @@ for (let i = 0; i < navigationLinks.length; i++) {
         navigationLinks[i].classList.remove("active");
       }
     }
-
   });
 }
-
 
 document.addEventListener("DOMContentLoaded", function () {
   var modal = document.getElementById("imageModal");
   var modalImg = document.getElementById("modalImage");
   var captionText = document.getElementById("caption");
+  var modalTitle = document.getElementById("modalTitle");
+  var modalDescription = document.getElementById("modalDescription");
+  var downloadButton = document.getElementById("downloadButton");
   var closeBtn = document.getElementsByClassName("close")[0];
 
   // Open modal
@@ -154,18 +155,24 @@ document.addEventListener("DOMContentLoaded", function () {
       modal.style.display = "block";
       modalImg.src = img.src;
       captionText.innerHTML = img.alt;
+      modalTitle.innerHTML = this.dataset.title;
+      modalDescription.innerHTML = this.dataset.description;
+      downloadButton.href = this.dataset.downloadUrl;
+      document.body.style.overflow = "hidden"; // Prevent background scroll
     });
   });
 
   // Close the modal on close button click
   closeBtn.onclick = function () {
     modal.style.display = "none";
+    document.body.style.overflow = "auto"; // Allow background scroll
   };
 
   // Close the modal on outside click
   window.onclick = function (event) {
     if (event.target == modal) {
       modal.style.display = "none";
+      document.body.style.overflow = "auto"; // Allow background scroll
     }
   };
 });
